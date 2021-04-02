@@ -36,14 +36,28 @@ class _CounterScreenState extends State<CounterScreen> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            resultado++;
-            print('funciona!');
-          });
-        },
-        child: Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                resultado--;
+                print('funciona subtraendo!');
+              });
+            },
+            child: Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                resultado++;
+                print('funciona somador!');
+              });
+            },
+            child: Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
