@@ -39,26 +39,37 @@ class _CounterScreenState extends State<CounterScreen> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                resultado--;
-                print('funciona subtraendo!');
-              });
-            },
-            child: Icon(Icons.add),
+          CustomFloatingButton(
+            customFunc: () => operation(-1),
+            customIcon: Icon(Icons.add),
           ),
-          FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                resultado++;
-                print('funciona somador!');
-              });
-            },
-            child: Icon(Icons.add),
+          CustomFloatingButton(
+            customFunc: () => operation(1),
+            customIcon: Icon(Icons.add),
           ),
         ],
       ),
+    );
+  }
+
+  void operation(int factor) {
+    setState(() {
+      resultado = resultado + factor;
+    });
+  }
+}
+
+class CustomFloatingButton extends StatelessWidget {
+  final Icon customIcon;
+  final Function customFunc;
+
+  CustomFloatingButton({Key key, this.customIcon, this.customFunc})
+      : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: customFunc,
+      child: customIcon,
     );
   }
 }
