@@ -7,6 +7,6 @@ class CounterModel {
 
   void modifyCounterValue(Function(int) modifierFunc) {
     counter = modifierFunc(counter);
-    print('funfou');
+    //
   }
 }
