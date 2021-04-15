@@ -31,12 +31,12 @@ class _CounterScreenState extends State<CounterScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           CustomFloatingButton(
-            customFunc: () => operateState(controller.incrementAction),
-            customIcon: Icon(Icons.add),
+            customFunc: () => operateState(controller.decrementAction),
+            customIcon: Icon(Icons.exposure_minus_1),
           ),
           CustomFloatingButton(
-            customFunc: () => operateState(controller.decrementAction),
-            customIcon: Icon(Icons.add),
+            customFunc: () => operateState(controller.incrementAction),
+            customIcon: Icon(Icons.plus_one),
           ),
         ],
       ),
